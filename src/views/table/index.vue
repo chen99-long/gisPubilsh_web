@@ -13,30 +13,36 @@
           {{ scope.$index }}
         </template>
       </el-table-column>
-      <el-table-column label="Title">
+      <el-table-column label="Title" width="300" align="center">
         <template slot-scope="scope">
-          {{ scope.row.title }}
+          {{ scope.row.name }}
+        </template>
+      </el-table-column>     
+       <el-table-column label="Description">
+        <template slot-scope="scope">
+          {{ scope.row.cause }}
         </template>
       </el-table-column>
       <el-table-column label="Author" width="110" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
+          <span>{{ scope.row.nickname }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Pageviews" width="110" align="center">
+      <el-table-column label="URL" >
         <template slot-scope="scope">
-          {{ scope.row.pageviews }}
+          {{ scope.row.action }}
         </template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="Status" width="110" align="center">
+      <el-table-column class-name="status-col" label="Publish" width="110" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
+
+            <el-button @click="publish(scope.$index)" size="small" type="success" icon="el-icon-check" circle></el-button>
+
         </template>
       </el-table-column>
-      <el-table-column align="center" prop="created_at" label="Display_time" width="200">
+      <el-table-column align="center" prop="created_at" label="Delete" width="110">
         <template slot-scope="scope">
-          <i class="el-icon-time" />
-          <span>{{ scope.row.display_time }}</span>
+              <el-button @click="del(scope.$index)" size="small" type="danger" icon="el-icon-delete" circle></el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -44,7 +50,7 @@
 </template>
 
 <script>
-import { getList } from '@/api/table'
+import { getList,getPub,delPub } from '@/api/table'
 
 export default {
   filters: {
@@ -70,8 +76,19 @@ export default {
     fetchData() {
       this.listLoading = true
       getList().then(response => {
-        this.list = response.data.items
+        // console.log(response.data);
+        this.list = response.data
         this.listLoading = false
+      })
+    },
+    publish(index) {
+      console.log(index);
+    },
+    del(index) {
+      delPub(index).then(res=>{
+        console.log(res.data);
+        // 删除之后重新渲染
+        this.fetchData()
       })
     }
   }

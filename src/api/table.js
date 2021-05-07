@@ -18,8 +18,8 @@ export async function getList(params) {
 }
 
 //    传值，发布资源
-export async function getPub(index) {
-    const ret = await Axios.post('http://localhost:3001/Pub?index=' + index)
+export async function getPub(index, type) {
+    const ret = await Axios.post('http://localhost:3001/Pub?index=' + index + '&&type=' + type)
     return ret
 }
 

@@ -64,18 +64,25 @@ export const constantRoutes = [{
         name: 'Example',
         meta: { title: 'Administrator', icon: 'el-icon-s-help' },
         children: [{
-                path: 'table',
+                path: 'Contribute',
                 name: 'Table',
                 component: () =>
-                    import ('@/views/table/index'),
+                    import ('@/views/contribute/index'),
                 meta: { title: 'Contribute', icon: 'table' }
             },
             {
-                path: 'tree',
+                path: 'Advice',
                 name: 'Tree',
                 component: () =>
-                    import ('@/views/tree/index'),
+                    import ('@/views/advice/index'),
                 meta: { title: 'Advice', icon: 'tree' }
+            },
+            {
+                path: 'Data',
+                name: 'Data',
+                component: () =>
+                    import ('@/views/data/index'),
+                meta: { title: 'Data', icon: 'nested' }
             }
         ]
     },

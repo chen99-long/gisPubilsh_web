@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import { getList, getPub, delPub } from "@/api/table";
+import { getList, getPub, delPub } from "@/api/contribute";
 
 export default {
   filters: {

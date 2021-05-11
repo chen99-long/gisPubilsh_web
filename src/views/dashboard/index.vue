@@ -12,7 +12,7 @@
           <count-to
             :start-val="0"
             :end-val="data1"
-            :duration="2600"
+            :duration="500"
             class="card-panel-num"
           />
         </div>
@@ -30,7 +30,7 @@
           <count-to
             :start-val="0"
             :end-val="data2"
-            :duration="3000"
+            :duration="500"
             class="card-panel-num"
           />
         </div>
@@ -48,7 +48,7 @@
           <count-to
             :start-val="0"
             :end-val="data3"
-            :duration="3200"
+            :duration="500"
             class="card-panel-num"
           />
         </div>
@@ -66,7 +66,7 @@
           <count-to
             :start-val="0"
             :end-val="data4"
-            :duration="3600"
+            :duration="500"
             class="card-panel-num"
           />
         </div>
@@ -117,6 +117,7 @@ export default {
     handleSetLineChartData(type) {
       // 点击事件以后，通过传值改变事件绑定的数据
       this.lineChartData = lineChartData[type];
+      this.initNum();
     },
     initChart() {
       // 指定图表的配置项和数据

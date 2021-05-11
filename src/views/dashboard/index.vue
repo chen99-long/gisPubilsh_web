@@ -117,7 +117,6 @@ export default {
     handleSetLineChartData(type) {
       // 点击事件以后，通过传值改变事件绑定的数据
       this.lineChartData = lineChartData[type];
-      console.log(this.lineChartData.countData);
     },
     initChart() {
       // 指定图表的配置项和数据

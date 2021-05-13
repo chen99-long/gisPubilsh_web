@@ -78,7 +78,7 @@ export default {
   },
   data() {
     return {
-        value:'',
+        value:'0',
         key:'college',
       list: null,
       listLoading: true,

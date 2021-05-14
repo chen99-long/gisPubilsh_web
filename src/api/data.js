@@ -16,3 +16,12 @@ export async function delData(index, type) {
     const ret = await Axios.post('delData?index=' + index + '&type=' + type)
     return ret
 }
+
+//    传值，修改资源
+export async function editData(type, obj) {
+    const ret = await Axios.post('edit', {
+        type: type,
+        obj: obj
+    })
+    return ret
+}
